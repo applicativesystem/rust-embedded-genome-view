@@ -20,7 +20,6 @@ use std::io::{BufRead, BufReader, Write};
 fn main() {
 
     let args = GenomeArgs::parse();
-    println!("{:?}",args);
     let samtools_start = samtools_start(&args.alignment_arg, args.genome_start.unwrap()).unwrap();
     println!("The selected region has been written: {}", samtools_start);
     let samtools_range = samtools_range(&args.alignment_arg, args.genome_start.unwrap(), args.genome_end.unwrap()).unwrap();
@@ -69,15 +68,10 @@ fn samtools_range(pathsam: &str, start:usize, end:usize) -> Result<String, Box< 
     line: String
   }
 
-  #[derive(Debug, Clone, PartialEq, PartialOrd)]
-  struct LowerLimit {
-    line: String
-  }
 
   let fileopen = File::open(pathsam).expect("file not present");
   let fileread = BufReader::new(fileopen);
   let mut upper_lines:Vec<UpperLimit> = Vec::new();
-  let mut lower_lines:Vec<LowerLimit> = Vec::new();
 
   let mut lines = Vec::new();
   for i in fileread.lines(){
@@ -87,9 +81,6 @@ fn samtools_range(pathsam: &str, start:usize, end:usize) -> Result<String, Box< 
       lines.push(iden);
     }
   }
-
-  // implementing a binary search tree approach, so that diving the range and then later joining the range
-  // so that it searches independently.
 
   for i in lines.iter(){
     let mutable = i.split(" ").filter(|x| *x != "").collect::<Vec<_>>();
@@ -105,9 +96,6 @@ fn samtools_range(pathsam: &str, start:usize, end:usize) -> Result<String, Box< 
 
    for i in upper_lines.iter_mut(){
      commonjoin.push(i.line.clone());
-  }
-   for j in lower_lines.iter_mut(){
-     commonjoin.push(j.line.clone());
   }
 
   let mut samtools_range = File::create("samtools-range.sam").expect("file not found");
