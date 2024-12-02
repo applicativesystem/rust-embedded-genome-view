@@ -5,7 +5,8 @@
  
  ```
  cargo build
- ``
+ 
+ ```
  
  ```
  λ gauravsablok rust-samtools-filter → λ git main* → ./target/debug/rust-samtools-filter -h
@@ -21,17 +22,21 @@ Options:
   -V, --version  Print version
  ```
  - for a specific coordinate 
+ 
  ```
  ./target/debug/rust-samtools-filter ./sample-files/alignreads-metagenomics.sam 21001 
  ```
  - for a range of coordinate
+ 
  ```
  ./target/debug/rust-samtools-filter ./sample-files/alignreads-metagenomics.sam 21001 613960
+ 
  ```
 
 Gaurav Sablok
 
 - How to cite
+
 ```
   @software{
   author = {Gaurav Sablok},
