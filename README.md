@@ -4,6 +4,10 @@
  - general note: Incase of Golang and RUST, please see the last commit message and if it says compiled binary then it is completed or else still in development version.
  
  ```
+ cargo build
+ ``
+ 
+ ```
  λ gauravsablok rust-samtools-filter → λ git main* → ./target/debug/rust-samtools-filter -h
 Usage: rust-samtools-filter <ALIGNMENT_ARG> [GENOME_START] [GENOME_END]
 
@@ -27,11 +31,13 @@ Options:
 
 Gaurav Sablok
 
- - How to cite
-@software{
+- How to cite
+```
+  @software{
   author = {Gaurav Sablok},
   title = {{Genome-view:Developing samtools components in RUST for Genome Analysis}},
-  url = {https://github.com/applicativesystem},
+  url = {https://github.com/applicativesystem/rust-samtools-filter},
   version = {0.1.0},
   year = {2024}
 }
+```
