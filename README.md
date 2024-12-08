@@ -24,12 +24,13 @@ Options:
  - for a specific coordinate 
  
  ```
- ./target/debug/rust-samtools-filter ./sample-files/alignreads-metagenomics.sam 21001 
+ ./target/debug/rust-samtools-filter ./sample-files/Col0_C1.100k.sam 3675 
+
  ```
  - for a range of coordinate
  
  ```
- ./target/debug/rust-samtools-filter ./sample-files/alignreads-metagenomics.sam 21001 613960
+ ./target/debug/rust-samtools-filter ./sample-files/Col0_C1.100k.sam 3675 4670
  
  ```
 

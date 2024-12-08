@@ -45,7 +45,7 @@ fn samtools_start(pathsam: &str, start:usize) -> Result<String, Box<dyn Error>> 
   }
   let mut limit:Vec<Limit> = Vec::new();
   for i in limit_lines.iter(){
-    let mutable = i.split(" ").filter(|x| *x != "").collect::<Vec<_>>();
+    let mutable = i.split("\t").filter(|x| *x != "").collect::<Vec<_>>();
     if mutable.len() == 0 {
       continue
     }
@@ -83,7 +83,7 @@ fn samtools_range(pathsam: &str, start:usize, end:usize) -> Result<String, Box< 
   }
 
   for i in lines.iter(){
-    let mutable = i.split(" ").filter(|x| *x != "").collect::<Vec<_>>();
+    let mutable = i.split("\t").filter(|x| *x != "").collect::<Vec<_>>();
     if mutable.len() == 0 {
       continue
     }
